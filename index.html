@@ -42,4 +42,9 @@
     document.body.addEventListener('touchend', function(e){ e.preventDefault(); down(); });
   </script>
 </body>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+  </script>
 </html>
