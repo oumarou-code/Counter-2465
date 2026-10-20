@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#12121f">
+  <title>عداد 2465</title>
+  <link rel="manifest" href='data:application/manifest+json,{"name":"عداد 2465","short_name":"عداد","start_url":".","display":"standalone","background_color":"#12121f","theme_color":"#12121f","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22%3E%3Crect width=%22512%22 height=%22512%22 rx=%22100%22 fill=%22%2312121f%22/%3E%3Ctext x=%22256%22 y=%22340%22 font-size=%22200%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22%3E2465%3C/text%3E%3C/svg%3E","sizes":"512x512","type":"image/svg+xml"}]}'>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{width:100%;height:100%;overflow:hidden;background:#12121f;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+    .holder{display:flex;justify-content:center;align-items:center;width:100%;height:100%}
+    #num{
+      font-size:24vw;font-weight:900;color:#fff;
+      text-shadow:0 0 40px rgba(255,255,255,0.6);
+      background:rgba(255,255,255,0.03);
+      padding:25px 50px;border-radius:50px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.6);
+      transition:transform 0.1s
+    }
+    .press{transform:scale(0.92)}
+  </style>
+</head>
+<body>
+  <div class="holder"><div id="num">2465</div></div>
+  <script>
+    var START = 2465;   /* 1850 + 615 */
+    var el = document.getElementById('num');
+    var v = localStorage.getItem('cnt');
+    v = (v !== null && !isNaN(parseInt(v))) ? parseInt(v) : START;
+    el.textContent = v;
+
+    function down(){
+      if (v <= 0) return;
+      v--;
+      el.textContent = v;
+      localStorage.setItem('cnt', v);
+      el.classList.add('press');
+      setTimeout(function(){ el.classList.remove('press'); }, 120);
+    }
+    document.body.addEventListener('click', down);
+    document.body.addEventListener('touchend', function(e){ e.preventDefault(); down(); });
+  </script>
+</body>
+</html>
